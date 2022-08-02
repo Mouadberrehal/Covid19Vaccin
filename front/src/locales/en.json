@@ -1,0 +1,11 @@
+{
+    "error": {
+        "http": {
+            "500": "An unexpected error occurred. We are working on it. Please try again later.",
+            "5XX": "The service is currently unavailable (status code {status}). We are working on it. Please try again later.",
+            "withMessage": "An unexpected error occurred: status code {code}. {message}",
+            "other": "An unexpected error occurred (status code {status}). Please try again later."
+        }
+    },
+    "mandatory": "This field is mandatory."
+}

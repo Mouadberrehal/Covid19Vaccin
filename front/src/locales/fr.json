@@ -1,0 +1,11 @@
+{
+    "error": {
+        "http": {
+            "500": "Une erreur technique est survenue. Nous sommes avertis du problème et faisons en sorte de le corriger au plus tôt. Merci de réessayer plus tard.",
+            "5XX": "Le service n'est pas disponible actuellement (code d'état {status}). Nous sommes avertis du problème et faisons en sorte de le corriger au plus tôt. Merci de réessayer plus tard.",
+            "withMessage": "Une erreur technique est survenue : code d'état {code}. {message}",
+            "other": "Une erreur technique est survenue (code d'état {status}). Merci de réessayer plus tard."
+        }
+    },
+    "mandatory": "Ce champ doit être renseigné."
+}

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project
+        xmlns="http://maven.apache.org/POM/4.0.0"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>org.dernieredose</groupId>
+        <artifactId>app</artifactId>
+        <version>0-SNAPSHOT</version>
+    </parent>
+    <artifactId>front</artifactId>
+
+    <name>frontend</name>
+
+    <properties>
+    </properties>
+
+    <dependencyManagement>
+    </dependencyManagement>
+
+    <dependencies>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>com.github.eirslett</groupId>
+                <artifactId>frontend-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>install node and npm</id>
+                        <goals>
+                            <goal>install-node-and-npm</goal>
+                        </goals>
+                        <configuration>
+                            <nodeVersion>${nodeVersion}</nodeVersion>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>npm ci</id>
+                        <goals>
+                            <goal>npm</goal>
+                        </goals>
+                        <phase>generate-resources</phase>
+                        <configuration>
+                            <arguments>ci --silent --no-progress</arguments>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>npm run lint</id>
+                        <goals>
+                            <goal>npm</goal>
+                        </goals>
+                        <configuration>
+                            <arguments>run lint</arguments>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>npm run build</id>
+                        <goals>
+                            <goal>npm</goal>
+                        </goals>
+                        <configuration>
+                            <arguments>run build</arguments>
+                            <environmentVariables>
+                                <NODE_ENV>production</NODE_ENV>
+                                <VUE_APP_VERSION>${env.DERNIEREDOSE_VERSION}</VUE_APP_VERSION>
+                                <VUE_APP_SENTRY_TRACES_SAMPLE_RATE>0.1</VUE_APP_SENTRY_TRACES_SAMPLE_RATE>
+                            </environmentVariables>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
